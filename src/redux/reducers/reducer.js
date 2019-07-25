@@ -16,7 +16,7 @@ export const initialState = {
   ]
 };
   // assigning default value to state, loads info to initial state
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     //the switch reads the action type
   switch(action.type) {
 
