@@ -1,5 +1,5 @@
 import {ADD_FEATURE} from '../actions/actions'
-
+import { REMOVE_FEATURE } from '../actions/actions'
 
 export const initialState = {
   additionalPrice: 0,
@@ -27,13 +27,31 @@ export const reducer = (state = initialState, action) => {
         ...state,
         car: {
           //access the information inside car
+          // iterating over object
           ...state.car,
-          //spread in anything within the features
-            features: [...state.car.features, action.payload]
+          //spread in anything within the features, iteration over array
+            features: [...state.car.features, action.payload],
+            price: state.car.price + action.payload.price
         }
       }
     }
 
+    case REMOVE_FEATURE: {
+      return {
+        ...state,
+        car: {
+          //access the information inside car
+          // iterating over object
+          ...state.car,
+          //filter creates new array for us
+            features: state.car.features.filter(feature => {
+              // 
+              feature.id !== action.payload.id
+            }),
+            price: state.car.price - action.payload.price
+        }
+      }
+    }
 
     default: 
       return state;
