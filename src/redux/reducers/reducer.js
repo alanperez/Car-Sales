@@ -46,7 +46,7 @@ export const reducer = (state = initialState, action) => {
           //filter creates new array for us
             features: state.car.features.filter(feature => {
               // 
-              feature.id !== action.payload.id
+             return feature.id !== action.payload.id
             }),
             price: state.car.price - action.payload.price
         }
