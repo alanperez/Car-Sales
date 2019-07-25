@@ -1,3 +1,5 @@
+import {ADD_FEATURE} from '../actions'
+
 
 export const initialState = {
   additionalPrice: 0,
@@ -20,6 +22,17 @@ export const reducer = (state = initialState, action) => {
     //the switch reads the action type
   switch(action.type) {
 
+    case ADD_FEATURE: {
+      return {
+        ...state,
+        car: {
+          //access the information inside car
+          ...state.car,
+          //spread in anything within the features
+            features: [...state.car.features, action.payload]
+        }
+      }
+    }
 
 
     default: 
