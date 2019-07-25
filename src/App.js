@@ -12,6 +12,7 @@ const App = (props) => {
 
   const removeItem = item => {
     // dispatch an action here to remove an item
+    //d
     props.removeFeature(item)
   };
 
